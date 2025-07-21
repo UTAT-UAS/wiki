@@ -10,6 +10,8 @@ theme:
     repo: fontawesome/brands/github
   features:
     - navigation.sections
+    - navigation.indexes
+    - navigation.top
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
