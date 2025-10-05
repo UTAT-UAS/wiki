@@ -2,8 +2,4 @@
 title: Tutorials
 ---
 
-## Getting Started
-
-Install the developer environment:
-
-[https://github.com/UTAT-UAS/dev_env](https://github.com/UTAT-UAS/dev_env)
+[First Steps](./First_Steps/index.md) - Tutorials that take you from the very beginning of setup to writing actual code.
