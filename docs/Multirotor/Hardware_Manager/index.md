@@ -8,11 +8,9 @@ It is easiest to do this on native Ubuntu.
 
 [Follow this guide to install the Nvidia sdkmanager](https://www.jetson-ai-lab.com/initial_setup_jon_sdkm.html)
 
-You may have to use the `flash.sh` script to get the super firmware which enables the MAXN SUPER power profile.
+You will have to create and login with a Nvidia developers account, then follow the instructions in the installer. Make sure to install with CUDA.
 
-`sudo ./flash jetson-orin-nano-devkit-nvme internal`
-
-It appears that when in recovery mode the carrier board does not spin the fan on the Jetson module, use an external fan to cool the module otherwise it may power off due to overheating.
+It appears that when in recovery mode the carrier board does not spin the fan on the Jetson module, use an external fan to cool the module otherwise it may power off due to overheating. The fan will spin once the OS installation has reached a certain point.
 
 ### Setting Up Jetson
 
@@ -22,6 +20,43 @@ It appears that when in recovery mode the carrier board does not spin the fan on
 - Install/setup ROS2
 - Install uXRCE-DDS
 - Install/setup Tailscale
+
+### Installing PyTorch
+
+This is probably how you do it (Jetpack 6.2, CUDA 12.6)
+
+```
+sudo apt-get update
+sudo apt-get install -y python3-pip libopenblas-dev libcusparselt-dev
+```
+
+Install:
+
+- [https://developer.nvidia.com/cusparselt-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network](https://developer.nvidia.com/cusparselt-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+_ [https://developer.nvidia.com/cudss-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network](https://developer.nvidia.com/cudss-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+
+```
+sudo apt-get install -y cuda-cupti-12-6
+```
+
+```
+python3 -m pip install torch==2.8.0 torchvision==0.23.0 --index-url=https://pypi.jetson-ai-lab.io/jp6/cu126
+```
+
+### Other Links
+
+[https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html)
+[https://ninjalabo.ai/blogs/jetson_pytorch.html](https://ninjalabo.ai/blogs/jetson_pytorch.html)
+
+Can also install cusparselt like this?
+
+[https://github.com/pytorch/pytorch/blob/main/.ci/docker/common/install_cusparselt.sh](https://github.com/pytorch/pytorch/blob/main/.ci/docker/common/install_cusparselt.sh)
+
+### Serial SSH
+
+```sh
+ssh <user>@192.168.55.1
+```
 
 ### Flashing from Docker Container
 
