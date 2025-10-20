@@ -35,6 +35,7 @@ plugins:
 markdown_extensions:
   - toc:
       permalink: 🔗
+  - footnotes
   - admonition
   - pymdownx.details
   - pymdownx.superfences:
