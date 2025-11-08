@@ -23,34 +23,26 @@ It appears that when in recovery mode the carrier board does not spin the fan on
 
 ### Installing PyTorch
 
-This is probably how you do it (Jetpack 6.2, CUDA 12.6)
+Working method for Jetpack 6.2 and CUDA 12.6:
 
 ```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
 sudo apt-get update
+sudo apt-get -y install cusparselt-cuda-12
+sudo apt-get -y install cudss
 sudo apt-get install -y python3-pip libopenblas-dev libcusparselt-dev
-```
-
-Install:
-
-- [https://developer.nvidia.com/cusparselt-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network](https://developer.nvidia.com/cusparselt-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
-_ [https://developer.nvidia.com/cudss-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network](https://developer.nvidia.com/cudss-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
-
-```
 sudo apt-get install -y cuda-cupti-12-6
-```
-
-```
 python3 -m pip install torch==2.8.0 torchvision==0.23.0 --index-url=https://pypi.jetson-ai-lab.io/jp6/cu126
 ```
 
-### Other Links
+### Sources
 
-[https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html)
-[https://ninjalabo.ai/blogs/jetson_pytorch.html](https://ninjalabo.ai/blogs/jetson_pytorch.html)
-
-Can also install cusparselt like this?
-
-[https://github.com/pytorch/pytorch/blob/main/.ci/docker/common/install_cusparselt.sh](https://github.com/pytorch/pytorch/blob/main/.ci/docker/common/install_cusparselt.sh)
+- [https://developer.nvidia.com/cusparselt-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network](https://developer.nvidia.com/cusparselt-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+- [https://developer.nvidia.com/cudss-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network](https://developer.nvidia.com/cudss-downloads?target_os=Linux&target_arch=aarch64-jetson&Compilation=Native&Distribution=Ubuntu&target_version=22.04&target_type=deb_network)
+- [https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html](https://docs.nvidia.com/deeplearning/frameworks/install-pytorch-jetson-platform/index.html)
+- [https://ninjalabo.ai/blogs/jetson_pytorch.html](https://ninjalabo.ai/blogs/jetson_pytorch.html)
+- [https://github.com/pytorch/pytorch/blob/main/.ci/docker/common/install_cusparselt.sh](https://github.com/pytorch/pytorch/blob/main/.ci/docker/common/install_cusparselt.sh)
 
 ### Serial SSH
 
