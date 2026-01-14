@@ -21,6 +21,14 @@ It appears that when in recovery mode the carrier board does not spin the fan on
 - Install uXRCE-DDS
 - Install/setup Tailscale
 
+Sometimes CUDA doesn't get installed?
+
+```
+sudo apt install cuda-toolkit-12-6
+```
+
+Install custom gstreamer to `/build` or somewhere and point `GST_PLUGIN_PATH` or else library issues!
+
 ### Installing PyTorch
 
 Working method for Jetpack 6.2 and CUDA 12.6:
