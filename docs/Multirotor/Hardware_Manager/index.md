@@ -29,6 +29,10 @@ sudo apt install cuda-toolkit-12-6
 
 Install custom gstreamer to `/build` or somewhere and point `GST_PLUGIN_PATH` or else library issues!
 
+`jtop` is a `top` inspired tui for viewing current jetson information.
+
+Also note that `jetson_clocks` is a thing.
+
 ### Installing PyTorch
 
 Working method for Jetpack 6.2 and CUDA 12.6:
@@ -43,6 +47,12 @@ sudo apt-get install -y python3-pip libopenblas-dev libcusparselt-dev
 sudo apt-get install -y cuda-cupti-12-6
 python3 -m pip install torch==2.8.0 torchvision==0.23.0 --index-url=https://pypi.jetson-ai-lab.io/jp6/cu126
 ```
+
+### Installing onnxruntime-gpu
+
+[https://docs.ultralytics.com/guides/nvidia-jetson/#install-ultralytics-package_1](https://docs.ultralytics.com/guides/nvidia-jetson/#install-ultralytics-package_1)
+
+Don't forget to install `tensorrt` through `apt`` and not `pip` (otherwise make sure you completely purge `tensorrt` related packages from site packages). You will get incompatibility issues if you install through `pip`.
 
 ### Sources
 
@@ -72,3 +82,10 @@ Useful forum links:
 
 - [https://www.jetson-ai-lab.com/initial_setup_jon_sdkm.html](https://www.jetson-ai-lab.com/initial_setup_jon_sdkm.html)
 - [https://forums.developer.nvidia.com/t/orin-nano-installation-fails-chroot-failed-to-run-command-dpkg-exec-format-error/263215/6](https://forums.developer.nvidia.com/t/orin-nano-installation-fails-chroot-failed-to-run-command-dpkg-exec-format-error/263215/6)
+
+## Other Packages
+
+### MicroROS
+
+You must have the build workspace completely isolated. (Remove any sourcing of workspaces from `~/.bashrc`)
+
