@@ -11,13 +11,15 @@ Knowledge assumptions:
 - These tutorials assume some knowledge of programming (C++ or Python)
 - These tutorials assume some knowledge of git
 - These tutorials assume limited knowledge of the terminal
-- These tutorials assume no knowledge of Linux
+- These tutorials assume limited knowledge of Linux
 - These tutorials assume no knowledge of dev-containers
-- These tutorials assume no knowledge of ROS2, PX4, etc.
+- These tutorials assume limited knowledge of ROS2, PX4, etc.
 
 ## Index
 
-1. [Developer Environment](./1._Developer_Environment.md)
+1. Developer Environment 
+ 	- [Developer Environment (OS)](./1a._Developer_Environment_OS.md)
+ 	- [Developer Environment (Tools)](./1b._Developer_Environment_Tools.md)
 2. [Interacting with the Environment](./2._Interacting_with_the_Environment.md)
 3. [Recommended Tutorials](./3._Recommended_Tutorials.md)
 
