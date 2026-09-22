@@ -1,5 +1,0 @@
----
-title: Flight Visualizer
----
-
-wip

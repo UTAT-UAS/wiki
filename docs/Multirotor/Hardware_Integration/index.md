@@ -1,5 +1,5 @@
 ---
-title: Hardware Manager
+title: Hardware Integration
 ---
 
 ## Flashing Jetson Nano Orin
