@@ -34,5 +34,22 @@ For creating new pages see [MkDocs Documentation](https://www.mkdocs.org/) and [
 
 You can edit the wiki by changing/creating the markdown files in this repository. Any updates to main will automatically cause the site to rebuild.
 
-Preview locally by [installing the Material for MkDocs Python package] and running `mkdocs serve`
+### Preview locally
 
+With Nix:
+
+```sh
+nix develop
+mkdocs serve
+```
+
+Without Nix, install [Python 3](https://www.python.org/downloads/) and run:
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install mkdocs-material
+mkdocs serve
+```
+
+On Windows, use `py -m venv .venv` and `.venv\Scripts\Activate.ps1` for the first two commands.
