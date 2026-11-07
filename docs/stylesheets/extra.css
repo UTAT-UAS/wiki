@@ -1,3 +1,87 @@
 :root header, :root .md-sidebar {
   --md-primary-fg-color: #001B43;
 }
+
+/* Communication link diagrams (docs/javascripts/comm-diagram.js) */
+/* Pages with diagrams hide both sidebars (front matter) and use the full width. */
+.md-main__inner.md-grid:has(.cd-diagram) { max-width: none; }
+.cd-diagram {
+  --cd-bg: #ffffff;
+  --cd-ink: #20252b;
+  --cd-paper: #ffffff;
+  --cd-muted: #5b6573;
+  --cd-region: #f3f5f8;
+  --cd-region-line: #d5dbe3;
+  --cd-group: #ffffff;
+  --cd-group-line: #9aa4b1;
+  --cd-ros-bg: #f1faf3;
+  --cd-rc: #d9480f;
+  --cd-rfd: #7048e8;
+  --cd-net: #1971c2;
+  --cd-wire: #5c6670;
+  --cd-video: #c2255c;
+  --cd-ros: #2f9e44;
+  --cd-gz: #0c8599;
+  --cd-font: var(--md-text-font-family);
+  margin: 1em 0;
+}
+[data-md-color-scheme="slate"] .cd-diagram {
+  --cd-bg: #1f212b;
+  --cd-ink: #e3e6ec;
+  --cd-paper: #2a2e3b;
+  --cd-muted: #a3abb8;
+  --cd-region: #262937;
+  --cd-region-line: #3b4054;
+  --cd-group: #1f212b;
+  --cd-group-line: #5f6780;
+  --cd-ros-bg: #1d2e27;
+  --cd-rc: #ff8a4c;
+  --cd-rfd: #a991ff;
+  --cd-net: #5aa9ff;
+  --cd-wire: #a9b1bd;
+  --cd-video: #f06595;
+  --cd-ros: #69db7c;
+  --cd-gz: #3bc9db;
+}
+.cd-diagram > img, .cd-diagram > p > img { max-width: 100%; }
+.cd-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.7rem;
+}
+.cd-toggle { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+.cd-hint { flex: 1 1 10rem; color: var(--md-default-fg-color--light); }
+.md-typeset .cd-btn {
+  min-width: 2rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.2rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+}
+.md-typeset .cd-btn:hover { border-color: var(--md-accent-fg-color); color: var(--md-accent-fg-color); }
+.cd-stage {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  overflow: hidden;
+  background: var(--cd-bg);
+}
+.cd-stage.is-zoomed { cursor: grab; touch-action: none; }
+.cd-stage.is-dragging { cursor: grabbing; user-select: none; }
+.cd-stage svg { display: block; width: 100%; height: auto; }
+.cd-stage .cdg.hide-optional .cd-optional { display: none; }
+.cd-diagram:fullscreen {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--md-default-bg-color);
+}
+.cd-diagram:fullscreen .cd-stage { flex: 1 1 auto; display: flex; align-items: center; }
+.cd-diagram:fullscreen .cd-stage svg { max-height: calc(100vh - 5rem); }

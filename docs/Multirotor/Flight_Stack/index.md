@@ -73,24 +73,14 @@ sequenceDiagram
 
 ## Communication Links
 
-```mermaid
-flowchart LR
-    jetson["Jetson Orin Nano<br/>(companion computer)"]
-    uav["UAV<br/>(PX4 flight controller)"]
-    rc["RC Transmitter"]
-    gcs["Ground Control Station"]
+See the [interactive communication link diagrams](Communication_Links.md) for detailed diagrams.
 
-    jetson <-- "MAVLink" --> uav
-    jetson <-- "uXRCE-DDS" --> uav
-    rc <-- "ELRS" --> uav
-    uav <-- "RFD telemetry radio" --> gcs
-    jetson <-- "4G cellular data" --> gcs
-```
-
-| Link        | Endpoints    | Used for                                                         |
-| ----------- | ------------ | ---------------------------------------------------------------- |
-| MAVLink     | Jetson ↔ UAV | MAVLink messages between the companion computer and PX4          |
-| uXRCE-DDS   | Jetson ↔ UAV | PX4 uORB topics bridged to ROS 2 (`/fmu/in/*`, `/fmu/out/*`)     |
-| ELRS        | RC ↔ UAV     | Manual control and mode switching                                |
-| RFD         | UAV ↔ GCS    | Telemetry radio link to the ground station                       |
-| 4G cellular | Jetson ↔ GCS | Flight visualizer bridge traffic and remote access to the Jetson |
+| Link | Endpoints | Used for |
+| ----------- | ------------------- | -------------------------------------------------------------- |
+| MAVLink | Jetson ↔ UAV | MAVLink messages between the companion computer and PX4 |
+| uXRCE-DDS | Jetson ↔ UAV | PX4 uORB topics bridged to ROS 2 |
+| ELRS | RC ↔ UAV | Manual control and mode switching |
+| RFD | UAV ↔ GCS | Optional telemetry radio link (MAVLink) to QGroundControl |
+| 4G cellular | Jetson ↔ GCS | Flight visualizer traffic and remote access to the Jetson |
+| Tailnet | Jetson ↔ GCS | Tailscale WireGuard mesh over 4G for all IP traffic to the GCS |
+| FPV | VTX → monitor → GCS | Optional 5.8 GHz analog video, into the GCS via a capture card |
